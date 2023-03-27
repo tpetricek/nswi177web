@@ -7,8 +7,9 @@ for MD in *.md; do
 	HTML=${MD%.*}.html
 	pandoc --template template.html $MD > .output/$HTML
 done
+DATE=$(date '+%Y-%m-%d %H:%M:%S')
 cd .output
 git add .
-git commit -m "Updating web page"
+git commit -m "Updating web page ($DATE)"
 git push origin gh-pages
 cd ..
